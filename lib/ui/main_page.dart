@@ -16,6 +16,21 @@ class _MainPageState extends State<MainPage> {
         title: Text('HoTS Ultimate'),
         backgroundColor: Colors.deepPurple,
       ),
+      drawer: Drawer(
+        child: ListView(
+
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Header'),
+              decoration: BoxDecoration(color: Colors.deepPurple),
+            ),
+            ListTile(title: Text('Item 1'), onTap: () => print('Item 1'),),
+            ListTile(title: Text('Item 2'), onTap: () => print('Item 2'),),
+            ListTile(title: Text('Item 3'), onTap: () => print('Item 3'),),
+          ],
+        ),
+      ),
       backgroundColor: Colors.white70,
       body: FutureBuilder<List<Hero>>(
         future: fetchHeroes(http.Client()),
@@ -74,5 +89,4 @@ class Hero {
       imageUrl: json['icon_url']['92x93'] as String,
     );
   }
-
 }
